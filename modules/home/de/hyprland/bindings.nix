@@ -11,7 +11,7 @@
   mkMenu = menu: let
     configFile = pkgs.writeText "config.yaml" (
       lib.generators.toYAML {} {
-        anchor = "top";
+        anchor = "bottom";
         border = "#${colors.base0D}EE";
         border_width = border-size;
         background = "#${colors.base01}FF";
@@ -51,19 +51,9 @@ in {
           "$shiftMod, A, exec, "
           + lib.getExe (mkMenu [
             {
-              key = "a";
-              desc = "Proton Authenticator";
-              cmd = "env WEBKIT_DISABLE_COMPOSITING_MODE=1 ${pkgs.proton-authenticator}/bin/proton-authenticator";
-            }
-            {
               key = "p";
               desc = "Proton Pass";
               cmd = "${pkgs.proton-pass}/bin/proton-pass";
-            }
-            {
-              key = "v";
-              desc = "Proton VPN";
-              cmd = "${pkgs.proton-vpn}/bin/protonvpn-app";
             }
             {
               key = "c";
@@ -79,16 +69,6 @@ in {
               key = "o";
               desc = "Obsidian";
               cmd = "${pkgs.obsidian}/bin/obsidian";
-            }
-            {
-              key = "s";
-              desc = "Signal";
-              cmd = "${pkgs.signal-desktop}/bin/signal-desktop";
-            }
-            {
-              key = "t";
-              desc = "TickTick";
-              cmd = "${pkgs.ticktick}/bin/ticktick";
             }
             {
               key = "b";
@@ -136,12 +116,13 @@ in {
         "$mod,RETURN, exec, ${pkgs.ghostty}/bin/ghostty +new-window" # Ghostty (terminal, via daemon D-Bus)
         "$mod,E, exec, ${pkgs.ghostty}/bin/ghostty +new-window -e elio" # Elio
         "$mod, SPACE, exec, ${lib.getExe tofi-drun-toggle}" # Launcher (toggle)
-        "$mod, N, exec, ${pkgs.swaynotificationcenter}/bin/swaync-client -t" # Notification center
+        "$mod, N, exec, ${pkgs.dunst}/bin/dunstctl history-pop" # Show last notification
+        "$shiftMod, N, exec, ${pkgs.dunst}/bin/dunstctl close-all" # Close all notifications
 
         # Windows
         "$mod,Q, killactive," # Close window
         "$mod,F, fullscreen" # Toggle Fullscreen
-        "$shiftMod,F, togglefloating," # Toggle Floating
+        "$mod,W, togglefloating," # Toggle Floating
         "$shiftMod, SPACE, exec, ${scripts.focus-toggle}/bin/focus-toggle" # Toggle focus mode
 
         # Focus Windows
@@ -149,6 +130,13 @@ in {
         "$mod,J, movefocus, d" # Move focus Down
         "$mod,K, movefocus, u" # Move focus Up
         "$mod,L, movefocus, r" # Move focus Right
+
+        # Substitute        
+        "$mod, left, movefocus, l"
+        "$mod, down, movefocus, d"
+        "$mod, up, movefocus, u"
+        "$mod, right, movefocus, r"
+
         "$shiftMod,H, focusmonitor, -1" # Focus previous monitor
         "$shiftMod,J, layoutmsg, removemaster" # Remove from master
         "$shiftMod,K, layoutmsg, addmaster" # Add to master
@@ -159,8 +147,10 @@ in {
         "$shiftMod, S, movetoworkspace, special:scratch" # Move to scratch workspace
 
         # Utilities
-        ", Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m region" # Capture region
-        "$shiftMod, Print, exec, ${pkgs.hyprshot}/bin/hyprshot -m output" # Capture screen
+        "$mod, P, exec, ${pkgs.hyprshot}/bin/hyprshot -m output" # Capture region
+        "$shiftMod, P, exec, ${pkgs.hyprshot}/bin/hyprshot -m region" # Capture screen
+        "$mod, C, exec, ${scripts.shell-cut}/bin/shell-cut" # Screen cut solver
+        "$shiftMod, C, exec, ${scripts.shell-cut}/bin/shell-cut --clear" # Clear solver notifications
       ]
       ++ (builtins.concatLists (
         builtins.genList (

@@ -4,6 +4,7 @@
   pkgs,
   config,
   lib,
+  osConfig,
   ...
 }: let
   border-size = config.theme.border-size;
@@ -13,7 +14,7 @@
   inactive-opacity = config.theme.inactive-opacity;
   rounding = config.theme.rounding;
   blur = config.theme.blur;
-  keyboardLayout = config.var.keyboardLayout;
+  keyboardLayout = osConfig.var.keyboardLayout;
   background = "rgba(" + config.lib.stylix.colors.base00 + "EE)";
 in {
   imports = [
@@ -53,7 +54,6 @@ in {
 
   wayland.windowManager.hyprland = {
     enable = true;
-    configType = "hyprlang";
     xwayland.enable = true;
     systemd.enable = false;
     package = null;
@@ -107,10 +107,7 @@ in {
           render_power = 3;
         };
         blur = {
-          enabled =
-            if blur
-            then "true"
-            else "false";
+          enabled = blur;
           size = 18;
         };
       };
@@ -121,11 +118,13 @@ in {
         mfact = 0.5;
       };
 
-      gesture = "3, horizontal, workspace";
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 3;
+      };
 
       layerrule = [
         "match:namespace launcher, animation popin 70%"
-        "match:namespace swaync-control-center, animation slide right"
       ];
 
       windowrule = [

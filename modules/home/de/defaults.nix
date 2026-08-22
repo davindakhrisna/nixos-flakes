@@ -5,7 +5,7 @@
     ./hyprland
     ./hyprlock
     ./mime
-    ./swaync
+    ./dunst
     ./termfilechooser
     ./tofi
     ./udiskie

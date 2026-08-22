@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  osConfig,
   osdPath,
   networkScript,
   bluetoothScript,
@@ -135,7 +136,7 @@ in {
       };
 
       clock = {
-        timezone = config.var.timeZone;
+        timezone = osConfig.var.timeZone;
         tooltip-format = "<tt><small>{calendar}</small></tt>";
         format = "{:%H:%M}";
         format-alt = "{:%H:%M %d %B %Y}";

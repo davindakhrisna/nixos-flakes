@@ -240,7 +240,7 @@
       comment = "Toggle Do Not Disturb";
       categories = ["System"];
       terminal = false;
-      settings.Keywords = "dnd;notifications;disturb;swaync;silence;";
+      settings.Keywords = "dnd;notifications;disturb;dunst;silence;";
     };
 
     vol-mute = {

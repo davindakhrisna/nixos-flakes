@@ -16,7 +16,7 @@
   px = x: toString (round x);
 
   paint = color: t: ''<span foreground="#${color}">${t}</span>'';
-  fromFile = name: text: ''cmd[update:0] cat ${pkgs.writeText name text}'';
+  fromFile = name: text: ''cmd[update:0] ${pkgs.coreutils}/bin/cat ${pkgs.writeText name text}'';
 
   inner = 42;
   width = inner + 2;
@@ -80,7 +80,7 @@ in {
       label = [
         {
           monitor = "";
-          text = ''cmd[update:1000] date +"%H:%M   %A %d %B"'';
+          text = ''cmd[update:1000] ${pkgs.coreutils}/bin/date +"%H:%M   %A %d %B"'';
           color = "rgb(${c.base05})";
           font_size = fontSize;
           font_family = font;

@@ -1,4 +1,4 @@
-# battery-monitor: low-battery alerts for waybar/swaync.
+# battery-monitor: low-battery alerts for waybar/dunst.
 # Runs main once (triggered by the battery-monitor systemd timer).
 
 POWER_SUPPLY_DIR="${POWER_SUPPLY_DIR:-/sys/class/power_supply}"

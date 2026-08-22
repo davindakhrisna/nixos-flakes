@@ -53,8 +53,8 @@ in {
     libinput.enable = true;
     xserver = {
       enable = true;
-      xkb.layout = keyboardLayout;
     };
+    xkb.layout = keyboardLayout;
     gnome.gnome-keyring.enable = true;
     psd = {
       enable = true;

@@ -117,7 +117,7 @@
   nvim-ghostty = pkgs.makeDesktopItem {
     name = "nvim-ghostty";
     desktopName = "Neovim (Ghostty)";
-    exec = ''${pkgs.ghostty}/bin/ghostty +new-window --title="Neovim Editor" -e nvim %F'';
+    exec = ''${pkgs.ghostty}/bin/ghostty +new-window --title="Neovim Editor" -e ${pkgs.neovim}/bin/nvim %F'';
     terminal = false;
     categories = ["Development" "TextEditor"];
     mimeTypes = mimeMap.code ++ mimeMap.text;
@@ -134,7 +134,6 @@ in {
   home.packages = [nvim-ghostty];
 
   xdg = {
-    configFile."mimeapps.list".force = true;
     mimeApps = {
       enable = true;
       associations.added = associations;
