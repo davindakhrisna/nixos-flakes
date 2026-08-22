@@ -1,6 +1,4 @@
 {...}: {
-  stylix.targets.chromium.enable = false;
-
   programs.helium = {
     enable = true;
 
