@@ -10,7 +10,7 @@
     ./hardware-configuration.nix
   ];
 
-  config.var = {
+  var = {
     hostname = "vm-nixos";
     username = "kryisnn";
     keyboardLayout = "us";

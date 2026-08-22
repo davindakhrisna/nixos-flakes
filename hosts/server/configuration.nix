@@ -9,7 +9,7 @@
     ./hardware-configuration.nix
   ];
 
-  config.var = {
+  var = {
     hostname = "jack";
     username = "kryisnn";
     keyboardLayout = "us";
