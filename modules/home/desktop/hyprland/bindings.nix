@@ -52,18 +52,18 @@ in {
           + lib.getExe (mkMenu [
             {
               key = "p";
-              desc = "Proton Pass";
+              desc = "KeepassXC";
               cmd = "${pkgs.proton-pass}/bin/proton-pass";
             }
             {
               key = "c";
-              desc = "Proton Calendar";
-              cmd = "${config.programs.helium.package}/bin/helium 'https://calendar.proton.me/'";
+              desc = "Tradingview";
+              cmd = "${config.programs.helium.package}/bin/helium 'https://tradingview.com/'";
             }
             {
               key = "m";
-              desc = "Proton Mail";
-              cmd = "${config.programs.helium.package}/bin/helium 'https://mail.proton.me/'";
+              desc = "Gmail";
+              cmd = "${config.programs.helium.package}/bin/helium 'https://gmail.com/'";
             }
             {
               key = "o";

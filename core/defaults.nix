@@ -110,6 +110,8 @@
     ./essentials/nix.nix
     ./essentials/vulnix.nix
     ./essentials/tailscale.nix
+    ./essentials/syncthing.nix
+    ./essentials/docker.nix
     ./hardware/boot/kernel-hardening.nix
     ./hardware/boot/limine-boot.nix
     ./hardware/boot/tuigreet.nix
