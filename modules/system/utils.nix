@@ -90,7 +90,6 @@ in {
       gnupg
       openssl
       vim
-      go
       comma
       zip
       unzip

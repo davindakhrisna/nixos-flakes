@@ -458,6 +458,7 @@ in {
   shell-cut = pkgs.writeShellApplication {
     name = "shell-cut";
     runtimeInputs = with pkgs; [ grim jq curl libnotify dunst coreutils ];
+    excludeShellChecks = [ "SC1090" "SC2155" "SC2154" ];
     text = builtins.readFile ../../../../.github/scripts/shell-cut.sh;
   };
 }

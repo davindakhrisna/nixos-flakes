@@ -7,14 +7,17 @@ ENV_FILE="$DIR/.env"
 
 if [ -f "$ENV_FILE" ]; then
     set -a
+    # shellcheck source=/dev/null
     source "$ENV_FILE"
     set +a
 fi
 
-KEYS=("$GOOGLE_API_KEY" "$GOOGLE_API_KEY_BACKUP" "$GOOGLE_API_KEY_TERTIARY")
+# shellcheck disable=SC2154
+KEYS=("${GOOGLE_API_KEY:-}" "${GOOGLE_API_KEY_BACKUP:-}" "${GOOGLE_API_KEY_TERTIARY:-}")
 
 simplify_error() {
-    local err_str=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+    local err_str
+    err_str=$(echo "$1" | tr '[:upper:]' '[:lower:]')
     if [[ "$err_str" == *"429"* || "$err_str" == *"quota"* || "$err_str" == *"exhausted"* ]]; then
         echo "Error: API Quota Exceeded"
     elif [[ "$err_str" == *"timeout"* || "$err_str" == *"504"* || "$err_str" == *"deadline"* ]]; then
@@ -30,19 +33,21 @@ simplify_error() {
 
 notify() {
     local text="$1"
-    if [ -n "$2" ]; then
+    if [ -n "${2:-}" ]; then
         text="$2"
     fi
     
     # Escape HTML entities
-    local safe_message=$(echo "$text" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
+    local safe_message
+    safe_message=$(echo "$text" | sed 's/&/\&amp;/g; s/</\&lt;/g; s/>/\&gt;/g')
     local stealth_message="<span size='x-small'>${safe_message}</span>"
     
     notify-send -a "pyCheat" -u low -t 60000 "" "$stealth_message"
 }
 
 notify_error() {
-    local err_msg="$(simplify_error "$1")"
+    local err_msg
+    err_msg="$(simplify_error "$1")"
     notify "$err_msg"
 }
 
@@ -176,7 +181,7 @@ Rules:
     fi
 }
 
-case "$1" in
+case "${1:-}" in
     --clear|-c)
         clear_notifications
         ;;
