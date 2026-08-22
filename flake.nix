@@ -52,7 +52,12 @@
     system = "x86_64-linux";
     pkgs-unstable = import nixpkgs-unstable {
       inherit system;
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+        permittedInsecurePackages = [
+          "electron-40.10.5"
+        ];
+      };
     };
     pkgs = nixpkgs.legacyPackages.${system};
     args = {

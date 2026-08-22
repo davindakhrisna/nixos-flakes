@@ -98,7 +98,7 @@
       sl = "ls";
     };
 
-    initExtra = lib.mkMerge [
+    initContent = lib.mkMerge [
       (lib.mkOrder 550 ''
         function zvm_config() {
           ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BEAM

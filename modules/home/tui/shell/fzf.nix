@@ -37,7 +37,7 @@ in {
     ];
   };
 
-  programs.zsh.initExtra = lib.mkAfter ''
+  programs.zsh.initContent = lib.mkAfter ''
     _fzf_file_no_hidden() {
       local cmd result
       cmd="''${FZF_DEFAULT_COMMAND/--hidden /}"

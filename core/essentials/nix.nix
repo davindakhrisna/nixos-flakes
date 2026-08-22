@@ -9,6 +9,9 @@ in {
   nixpkgs.config = {
     allowUnfree = true;
     allowBroken = false;
+    permittedInsecurePackages = [
+      "electron-40.10.5"
+    ];
   };
   nix = {
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];

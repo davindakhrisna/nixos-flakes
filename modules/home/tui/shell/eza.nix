@@ -1,6 +1,6 @@
 # Eza is a ls replacement
 {
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     compdef eza=ls
   '';
   programs.eza = {
