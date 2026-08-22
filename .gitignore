@@ -1,0 +1,8 @@
+.claude/
+old/
+docs/superpowers/
+.superpowers/
+result/
+result-*
+.pre-commit-config.yaml
+.direnv/
