@@ -118,5 +118,6 @@
     ./hardware/cpu/intel.nix
     ./hardware/gpu/amd.nix
     ./hardware/gpu/nvidia.nix
+    ../themes/nox.nix
   ];
 }
