@@ -92,11 +92,11 @@
           vm = import ./hosts/vm/flake.nix args;
           server = import ./hosts/server/flake.nix args;
 
-          # Hostname aliases for nixos-rebuild
-          "powerhouse" = import ./hosts/powerhouse/flake.nix args;
-          "portable" = import ./hosts/portable/flake.nix args;
-          "vm" = import ./hosts/vm/flake.nix args;
-          "server" = import ./hosts/server/flake.nix args;
+          # Hostname aliases for nixos-rebuild (matches config.var.hostname)
+          "AN515-57" = import ./hosts/powerhouse/flake.nix args;
+          "A275" = import ./hosts/portable/flake.nix args;
+          "vm-nixos" = import ./hosts/vm/flake.nix args;
+          "jack" = import ./hosts/server/flake.nix args;
         };
       }
     ];
