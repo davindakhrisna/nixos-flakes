@@ -7,13 +7,16 @@
     inputs.nvf-config.homeManagerModules.default
 
     # Desktop Environment (Hyprland, Waybar, Dunst, Tofi, Hyprlock, Mime, etc.)
-    ../../modules/home/de/defaults.nix
+    ../../modules/home/desktop/defaults.nix
 
     # GUI Applications (Helium, Proton, Thorium, etc.)
     ../../modules/home/gui/defaults.nix
 
-    # TUI Suite (Elio, Ghostty, Git, NVF, Shell, Dev, etc.)
+    # TUI Suite (Elio, Ghostty, Git, NVF, Shell, etc.)
     ../../modules/home/tui/defaults.nix
+
+    # Development (Go, Node, Python, DSH, Pi, IDEs, etc.)
+    ../../modules/home/dev/defaults.nix
 
     # Stylix Theme
     ../../themes/nox.nix

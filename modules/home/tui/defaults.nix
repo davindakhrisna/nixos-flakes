@@ -15,7 +15,6 @@
     ./nixy
     ./nvf
     ./shell
-    ./dev
   ];
 
     home.packages = with pkgs; [

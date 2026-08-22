@@ -8,18 +8,21 @@
     imports = [
     ./helium
     ./thorium
-    ./keepassxc
   ];
 
   home.packages = with pkgs; [
+    # Media
     vlc # Video player
-    obsidian # Note taking app
     pinta # Image editor
-    onlyoffice-desktopeditors # Office suite
     blanket # Listen to different sounds
     spotify # Music
     vesktop # Discord
+
+    # Productivity
+    obsidian # Note taking app
+    onlyoffice-desktopeditors # Office suite
     winboat # Windows
+    keepassxc # Password manager
     
     # Backup
     thunar
