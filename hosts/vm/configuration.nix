@@ -32,7 +32,11 @@
 
   home-manager.users."${config.var.username}" = import ./home.nix;
 
-  boot.loader.efi.canTouchEfiVariables = false;
+  boot.loader = {
+    limine.enable = false;
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
   system.stateVersion = "26.05";
 }
