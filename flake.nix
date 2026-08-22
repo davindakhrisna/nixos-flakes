@@ -44,7 +44,7 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     antigravity = {
-      url = "github:Hy4ri/antigravity-flake";
+      url = "github:jacopone/antigravity-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     git-hooks = {
