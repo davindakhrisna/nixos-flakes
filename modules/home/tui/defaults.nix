@@ -22,7 +22,6 @@
     gparted
     pom # Pomodoro timer in your terminal
     jless # A pager for JSON
-    spotatui # Spotify TUI
     pkgs.nur.repos.anotherhadi.settuings # Terminal based settings (wifi, bluetooth, audio, ...)
     pkgs.nur.repos.anotherhadi.monitui # Edit hyprland's monitor configuration
     imagemagick # Image manipulation tool

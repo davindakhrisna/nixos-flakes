@@ -7,8 +7,8 @@
 }: {
     imports = [
     ./helium
-    ./proton
     ./thorium
+    ./keepassxc
   ];
 
   home.packages = with pkgs; [
@@ -19,12 +19,8 @@
     blanket # Listen to different sounds
     spotify # Music
     vesktop # Discord
-    ticktick # Todo app
     winboat # Windows
-    xournalpp # Draw / Annotate PDFs
-    dbgate # SQL Management
-    inputs.antigravity.packages.${pkgs.stdenv.hostPlatform.system}.default # Antigravity IDE
-
+    
     # Backup
     thunar
     gnome-text-editor

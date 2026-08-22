@@ -308,14 +308,14 @@
       settings.Keywords = "audio;input;source;microphone;mic;";
     };
 
-    spotatui = {
+    spotify = {
       name = "Spotify";
-      exec = "${pkgs.ghostty}/bin/ghostty +new-window -e ${pkgs.spotatui}/bin/spotatui";
+      exec = "spotify";
       icon = "spotify";
-      comment = "Control Spotify from the terminal";
+      comment = "Listen to music";
       categories = ["Audio" "Music"];
       terminal = false;
-      settings.Keywords = "spotify;spotatui;music;";
+      settings.Keywords = "spotify;music;";
     };
 
     settuings = {
