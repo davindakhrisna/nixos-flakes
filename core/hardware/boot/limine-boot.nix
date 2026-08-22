@@ -1,10 +1,13 @@
-# Limine bootloader configuration for NixOS
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   boot = {
     loader = {
-      efi.canTouchEfiVariables = true;
+      efi.canTouchEfiVariables = lib.mkDefault true;
       limine = {
-        enable = true;
+        enable = lib.mkDefault true;
         extraEntries = ''
           /Windows 10
             protocol: efi
