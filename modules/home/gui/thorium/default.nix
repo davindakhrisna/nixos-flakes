@@ -9,7 +9,7 @@
 
   src = pkgs.fetchurl {
     url = "https://github.com/edrlab/thorium-reader/releases/download/v${version}/Thorium-${version}.AppImage";
-    hash = "sha256-uMdfEwgRj/ggTvwhYt+B93LrkeD4bmBliWY12V1OqaA=";
+    hash = "sha256-uMdfEwgRj/ggTvwhYt+B93LrkeD4bmBliWY12V10qaA=";
   };
 
   appimageContents = pkgs.appimageTools.extractType2 {
