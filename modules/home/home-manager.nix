@@ -8,6 +8,9 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "hm-backup";
+    sharedModules = [
+      inputs.stylix.homeModules.stylix
+    ];
     extraSpecialArgs = {
       inherit inputs pkgs-unstable;
     };
