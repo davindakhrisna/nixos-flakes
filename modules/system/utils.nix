@@ -23,9 +23,7 @@ in {
     dates = "04:00";
     flake = "${configDir}";
     flags = [
-      "--update-input"
-      "nixpkgs"
-      "--commit-lock-file"
+      "--refresh"
     ];
     allowReboot = false;
   };
@@ -136,6 +134,4 @@ in {
       pkgs.xdg-desktop-portal-termfilechooser
     ];
   };
-
-  security.rtkit.enable = true;
 }

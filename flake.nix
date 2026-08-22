@@ -7,7 +7,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
     nvf.url = "github:notashelf/nvf";
     nvf-config = {
       url = "path:./modules/home/tui/nvf";
@@ -38,10 +37,6 @@
       url = "github:jacopone/antigravity-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    git-hooks = {
-      url = "github:cachix/git-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs @ {
@@ -70,11 +65,6 @@
         ;
     };
     merge = nixpkgs.lib.foldl nixpkgs.lib.recursiveUpdate {};
-    supportedSystems = ["x86_64-linux" "aarch64-linux"];
-
-    forAllSystems = f:
-      nixpkgs.lib.genAttrs supportedSystems
-      (system: f system (import nixpkgs {inherit system;}));
   in
     merge [
       (import ./modules/home/tui/nixy/flake.nix args)

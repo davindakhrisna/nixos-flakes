@@ -4,12 +4,12 @@
   lib,
   ...
 }: let
-  version = "3.2.0";
+  version = "3.4.0";
   pname = "thorium-reader";
 
   src = pkgs.fetchurl {
-    url = "https://github.com/edrlab/thorium-reader/releases/download/v${version}/Thorium_Reader_${version}.AppImage";
-    hash = "sha256-R4gM7e3826yBvF3e8p8zE77x0b0Q0B2o9kQ1J9+4iZg=";
+    url = "https://github.com/edrlab/thorium-reader/releases/download/v${version}/Thorium-${version}.AppImage";
+    hash = "sha256-wMdfEwgRj/ggTvwhYt+B93LrkeDvhuBlkWY1VddKmgA=";
   };
 
   appimageContents = pkgs.appimageTools.extractType2 {

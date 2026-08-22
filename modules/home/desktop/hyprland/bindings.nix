@@ -53,7 +53,7 @@ in {
             {
               key = "p";
               desc = "KeepassXC";
-              cmd = "${pkgs.proton-pass}/bin/proton-pass";
+              cmd = "${pkgs.keepassxc}/bin/keepassxc";
             }
             {
               key = "c";
